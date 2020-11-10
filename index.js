@@ -26,7 +26,6 @@ function send (){
         var response = JSON.parse(this.postData.text);
         console.log(this.responseText);
     }
-
 };
 }
 
