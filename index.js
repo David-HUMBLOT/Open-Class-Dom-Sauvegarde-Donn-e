@@ -1,7 +1,7 @@
 
     const saisietxt = document.getElementById("result");
     /**récupère les donnée saisie par l'utilisateur */
-    const value = document.getElementById("value").value;  
+     
     /**écouteur d'événement sur la saisie texte  */
     ecoutesaisie = addEventListener ('input', updatesaisie);
     function updatesaisie(e){
@@ -9,16 +9,17 @@
     }
 
 function send (){
+
     /**requete d'envoi JSON modifier en text */
     /**inscription des donnée récupérer par value et par écouteur d'événement */
     var request = new XMLHttpRequest();
     request.open("POST", "https://mockbin.com/request");
     request.setRequestHeader("Content-Type", "application/json");
-    request.send(JSON.stringify(value)); 
+    request.send(JSON.stringify({value: document.getElementById("value").value})); 
 
     saisietxt.innerHTML=value;
 
-    /**requète de récupération de JSON  */
+    /**requète de récupération de JSON apres modif saisie txt user  */
 
     request.onreadystatechange = function() {
     if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
